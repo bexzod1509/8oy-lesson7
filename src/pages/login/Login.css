@@ -1,0 +1,62 @@
+.f3 {
+  width: 536px;
+  padding: 26px 32px;
+  border-radius: 29px;
+  background: rgb(255, 255, 255);
+  border: 2px solid gray;
+}
+.f3 input {
+  padding: 14px 24px;
+  width: 100%;
+  border: 1px solid rgb(239, 239, 239);
+  border-radius: 4px;
+  margin-top: 2px;
+  outline: none;
+}
+.f3 p {
+  /* Regular 14 */
+  color: rgb(112, 115, 124);
+  font-family: Lexend;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 178.19%;
+  letter-spacing: 0%;
+  text-align: left;
+  margin-top: 20px;
+}
+.f4 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 14px;
+}
+.f4 button {
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  background: rgb(53, 151, 64);
+  padding: 11px 31px;
+  color: rgb(255, 255, 255);
+  font-family: Lexend;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 178.19%;
+  letter-spacing: -3.5%;
+  text-align: left;
+}
+.f4 a {
+  color: rgb(112, 115, 124);
+  font-family: Lexend;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 178.19%;
+  letter-spacing: 0%;
+  text-align: left;
+  max-width: 222px;
+}
+.f3 {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
