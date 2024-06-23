@@ -1,22 +1,24 @@
-import { useState } from "react";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
-import User from "./pages/users/User";
-import Register from "./pages/register/Register";
+import Create from "./pages/create/Create";
 import Navbar from "./components/navbar/Navbar";
+import Single from "./pages/single/Single";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Auth from "./pages/Auth/Auth";
 function App() {
   return (
     <>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/user" element={<User />} />
+        <Route path="/" element={<Auth />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/create" element={<Create />} />
+          <Route path="/product/:id" element={<Single />} />
+        </Route>
         <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
       </Routes>
       <ToastContainer />
     </>

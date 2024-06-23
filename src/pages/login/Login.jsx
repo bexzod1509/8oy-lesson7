@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import "./Login.css";
-import { NavLink } from "react-router-dom";
 import axios from "../../api/index";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 const initial = {
   UserName: "john32",
   password: "12345678",
 };
 function Login() {
+  let navigate = useNavigate();
   const [formData, setFormData] = useState(initial);
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,6 +21,7 @@ function Login() {
       .then((res) => {
         localStorage.setItem("x-auth-token", res.data.data.token);
         localStorage.setItem("user", JSON.stringify(res.data.data.user));
+        navigate("/");
         toast.success(`${res.data.message} code:${res.data.statusCode}`);
       })
       .catch((err) => {
@@ -54,12 +56,6 @@ function Login() {
 
           <div className="f4">
             <button>LOG IN</button>
-            <NavLink to={"/"}>
-              <button>Go Back</button>
-            </NavLink>
-            <h3>
-              <NavLink to={"/register"}> Sign Up</NavLink>
-            </h3>
           </div>
         </form>
       </div>

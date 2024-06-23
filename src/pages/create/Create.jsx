@@ -9,7 +9,12 @@ const initial = {
   UserName: "",
   password: "",
 };
-function Register() {
+
+function Create() {
+  let user = JSON.parse(localStorage.getItem("user"));
+  if (user?.role === "user") {
+    return <></>;
+  }
   const [formData, setFormData] = useState(initial);
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -85,9 +90,6 @@ function Register() {
             <NavLink to={"/"}>
               <button>Go Back</button>
             </NavLink>
-            <h3>
-              <NavLink to={"/login"}>Login</NavLink>
-            </h3>
           </div>
         </form>
       </div>
@@ -95,4 +97,4 @@ function Register() {
   );
 }
 
-export default Register;
+export default Create;

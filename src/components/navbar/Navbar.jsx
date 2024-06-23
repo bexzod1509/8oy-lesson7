@@ -1,12 +1,11 @@
 import React from "react";
 import "./Navbar.css";
 import { NavLink } from "react-router-dom";
-import { FaUsers } from "react-icons/fa";
 import { FiLogIn } from "react-icons/fi";
 import { useLocation } from "react-router-dom";
 function Navbar() {
   let { pathname } = useLocation();
-  if (pathname == "/login" || pathname == "/register") {
+  if (pathname === "/login") {
     return <></>;
   }
   let user = JSON.parse(localStorage.getItem("user"));
@@ -21,19 +20,19 @@ function Navbar() {
           </NavLink>
           <div className="a">
             <NavLink to={"/"}>Home</NavLink>
-            {user?.role === "admin" ? (
+            {!user ? (
               <div className="a1">
-                <FaUsers />
-                <NavLink to={"/user"}>Users</NavLink>
+                <FiLogIn />
+                <NavLink to={"/login"}>Login</NavLink>
               </div>
             ) : (
               ""
             )}
-            <div className="a1">
-              <FiLogIn />
-              <NavLink to={"/login"}>Login</NavLink>
-            </div>
-            <NavLink to={"/register"}>Register</NavLink>
+            {user?.role === "admin" ? (
+              <NavLink to={"/create"}>Create Product</NavLink>
+            ) : (
+              ""
+            )}
           </div>
         </nav>
       </div>

@@ -1,0 +1,132 @@
+.d {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+.d2 {
+  max-width: 298px;
+  border: 1px solid rgb(236, 236, 236);
+  border-radius: 15px;
+  padding: 21px;
+}
+.img {
+  width: 246px;
+  height: 246px;
+}
+.d2 p {
+  position: absolute;
+  margin-top: -270px;
+  margin-left: -20px;
+  padding: 8px 20px;
+  border-radius: 15px 0px 20px 0px;
+  background: rgb(247, 75, 129);
+  color: rgb(255, 255, 255);
+  font-family: Lato;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 12px;
+  letter-spacing: 0%;
+  text-align: left;
+}
+.d2 span {
+  color: rgb(173, 173, 173);
+  font-family: Lato;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0%;
+  text-align: left;
+  margin-top: 5px;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.d2 h1 {
+  color: rgb(37, 61, 78);
+  font-family: Quicksand;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 19.2px;
+  letter-spacing: 0%;
+  text-align: left;
+  margin-top: 9px;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.d3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.d2 h4 {
+  font-family: Lato;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0%;
+  text-align: left;
+}
+.d2 b {
+  color: #3bb77e;
+  margin-top: 10px;
+}
+.d4 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.d5 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.d5 h2 {
+  color: rgb(59, 183, 126);
+  font-family: Quicksand;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0%;
+  text-align: left;
+}
+.d5 del {
+  color: rgb(173, 173, 173);
+  font-family: Quicksand;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0%;
+  text-align: left;
+  text-decoration-line: line-through;
+}
+.d4 button {
+  border-radius: 4px;
+  padding: 10px 20px;
+  border-style: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  background: rgb(223, 249, 222);
+  color: rgb(71, 183, 59);
+  font-family: Lato;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0%;
+  text-align: left;
+}
+.d1 {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  justify-content: center;
+  margin-top: 44px;
+  flex-wrap: wrap;
+}

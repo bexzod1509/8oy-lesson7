@@ -1,14 +1,12 @@
 import React from "react";
-import Alluser from "../../components/AllUsers/Alluser";
-
+import Product from "../../components/product/Product";
+import { useGetProductsQuery } from "../../context/productApi";
 function Home() {
+  let { data, isLoading, error, isError } = useGetProductsQuery();
+  let Data = data?.data.products;
   return (
     <div>
-      <img
-        style={{ width: "100%" }}
-        src="https://t3.ftcdn.net/jpg/03/76/07/04/360_F_376070489_EzDpO7FxSlzytoetXp7e27fQCMzs6UgB.jpg"
-        alt=""
-      />
+      <Product data={Data} />
     </div>
   );
 }
