@@ -31,7 +31,10 @@ function Login() {
   };
   return (
     <div>
-      <div className="f3">
+      <div
+        style={{ position: "fixed", transform: "translate(-50%, -50%)" }}
+        className="f3"
+      >
         <form onSubmit={handleLogin} className="form" action="">
           <p>Username</p>
           <input

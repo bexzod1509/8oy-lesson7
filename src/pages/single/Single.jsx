@@ -10,11 +10,7 @@ function Single() {
     <div className="container">
       <div className="products">
         <div key={products?.id} className="p">
-          <img
-            className="p-image"
-            src="https://www.drtc.org/wp-content/plugins/fancy-product-designer/assets/img/product-templates/hoodie_duocolor_front.png"
-            alt=""
-          />
+          <img className="p-image" src={products?.urls[0]} alt="" />
           <div className="p1">
             <div className="p2">
               <div className="p2">

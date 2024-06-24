@@ -1,92 +1,132 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import axios from "../../api/index";
 import { toast } from "react-toastify";
+import { useGetInputValue } from "../../hooks/useGetInputValue";
+import { useCreateProductMutation } from "../../context/productApi";
+import Localimages from "./Localimages";
 const initial = {
-  FirstName: "",
-  LastName: "",
-  phones: "",
-  UserName: "",
-  password: "",
+  title: "",
+  price: "",
+  oldPrice: "",
+  category: "",
+  units: "",
+  description: "",
+  info: "",
 };
 
 function Create() {
+  const [files, setFiles] = useState("");
+  const { formData, handleChange, setFormData } = useGetInputValue(initial);
+  const [createProduct, { isLoading, isSuccess }] = useCreateProductMutation();
   let user = JSON.parse(localStorage.getItem("user"));
   if (user?.role === "user") {
     return <></>;
   }
-  const [formData, setFormData] = useState(initial);
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-  const handleRegister = (e) => {
+  const handleCreateProduct = (e) => {
     e.preventDefault();
-    formData.phones = [formData.phones];
-    axios
-      .post("/auth/user/sign-up", formData)
-      .then((res) =>
-        toast.success(`${res.data.message} code:${res.data.statusCode}`)
-      )
-      .catch((err) => toast.error(err.message));
+    let form = new FormData();
+    form.append("title", formData.title);
+    form.append("price", formData.price);
+    form.append("oldPrice", formData.oldPrice);
+    form.append("category", formData.category);
+    form.append("units", formData.units);
+    form.append("description", formData.description);
+    form.append("info", JSON.stringify({}));
+    Array.from(files).forEach((img) => {
+      form.append("files", img, img.name);
+    });
+    createProduct(form);
   };
   return (
     <div>
       <div className="f3">
-        <form onSubmit={handleRegister} className="form" action="">
-          <p>First Name</p>
+        <form onSubmit={handleCreateProduct} className="form" action="">
+          <p>Title</p>
           <input
-            value={formData.FirstName}
+            value={formData.title}
             onChange={handleChange}
             required
             type="text"
-            name="FirstName"
+            name="title"
             id=""
-            placeholder="Your First Name"
+            placeholder="Apple"
           />
-          <p>Last Name</p>
+          <p>Price</p>
           <input
             onChange={handleChange}
-            value={formData.LastName}
+            value={formData.price}
+            required
+            type="number"
+            name="price"
+            id=""
+            placeholder="15"
+          />
+          <p>Old Price</p>
+          <input
+            onChange={handleChange}
+            value={formData.oldPrice}
+            required
+            type="number"
+            name="oldPrice"
+            id=""
+            placeholder="17"
+          />
+          <p>Category</p>
+          <input
+            onChange={handleChange}
+            value={formData.category}
             required
             type="text"
-            name="LastName"
+            name="category"
             id=""
-            placeholder="Your Last Name"
+            placeholder="Fruits"
           />
-          <p>Phone</p>
+          <p>Units</p>
           <input
             onChange={handleChange}
-            value={formData.phones}
-            required
-            type="tel"
-            name="phones"
-            id=""
-            placeholder="Your Phone"
-          />
-          <p>Username</p>
-          <input
-            onChange={handleChange}
-            value={formData.UserName}
+            value={formData.units}
             required
             type="text"
-            name="UserName"
+            name="units"
             id=""
-            placeholder="Your username"
+            placeholder="...kg"
           />
-          <p>Password</p>
+          <p>Description</p>
           <input
             onChange={handleChange}
-            value={formData.password}
+            value={formData.description}
             required
-            type="password"
-            name="password"
+            type="text"
+            name="description"
             id=""
-            placeholder="Your password"
+            placeholder="Your description"
           />
-
+          <p>Info</p>
+          <input
+            onChange={handleChange}
+            value={formData.info}
+            required
+            type="text"
+            name="info"
+            id=""
+            placeholder="Info"
+          />
+          <p>Image</p>
+          <div>
+            <input
+              onChange={(e) => setFiles(e.target.files)}
+              required
+              type="file"
+              multiple
+              accept="image/*"
+              name="urls"
+              id=""
+              placeholder="Your images"
+            />
+            <Localimages files={files} setFiles={setFiles} />
+          </div>
           <div className="f4">
-            <button>SIGN UP</button>
+            <button disabled={isLoading}>CREATE</button>
             <NavLink to={"/"}>
               <button>Go Back</button>
             </NavLink>

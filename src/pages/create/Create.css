@@ -1,0 +1,17 @@
+.local {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+}
+.local1 {
+  position: relative;
+}
+.local1 svg {
+  cursor: pointer;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  color: crimson;
+}

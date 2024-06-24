@@ -44,6 +44,9 @@
   letter-spacing: -3.5%;
   text-align: left;
 }
+.f4 button:disabled {
+  opacity: 0.5;
+}
 .f4 a {
   color: rgb(112, 115, 124);
   font-family: Lexend;
@@ -55,8 +58,8 @@
   max-width: 222px;
 }
 .f3 {
-  position: fixed;
+  position: sticky;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 5%);
 }
